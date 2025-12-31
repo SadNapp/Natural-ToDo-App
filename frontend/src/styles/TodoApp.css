@@ -1,0 +1,243 @@
+:root {
+  --deep-space: #020617;
+  --nebula-purple: #4c1d95;
+  --nebula-blue: #1e3a8a;
+  --purple-light: #c084fc;
+  --blue-accent: #38bdf8;
+  --glass-bg: rgba(15, 23, 42, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+/* Базові налаштування сторінки */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden; /* Забороняємо скрол всього екрану, скролитиметься лише список */
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: var(--deep-space);
+}
+
+/* Головний контейнер з адаптивним фоном */
+.main-wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw; /* Використовуємо ширину всього в'юпорту */
+
+  /* ЦЕНТРУВАННЯ КОНТЕНТУ */
+  display: flex;
+  justify-content: center; /* Центрує по горизонталі */
+  align-items: center;     /* Центрує по вертикалі */
+
+  /* ФОН повинно бути в кунці 8?auto=format,compress&q=90&w=2560*/
+  background: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop')
+  no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Підвищення якості для 4K моніторів повинно бути 8?auto=format,compress&q=100&w=3840*/
+@media (min-width: 2000px) {
+  .main-wrapper {
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2071&auto=format&fit=crop');
+  }
+}
+
+/* Декоративний оверлей з ефектом зірок */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+          radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+          radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+  background-size: 550px 550px, 350px 350px;
+  background-position: 0 0, 40px 60px;
+  opacity: 0.15;
+  z-index: 1;
+  pointer-events: none; /* Щоб шар не заважав клікам */
+}
+
+/* Скляна картка */
+.glass-container {
+  position: relative;
+  z-index: 10;
+  background: var(--glass-bg);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  width: 100%;
+  max-width: 440px;
+  height: 650px;
+  border-radius: 32px;
+  border: 1px solid var(--glass-border);
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+}
+
+/* Хедер та Текст */
+.todo-header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(to right, var(--blue-accent), var(--purple-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -1px;
+}
+
+.todo-header p {
+  margin: 8px 0 30px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+/* Поле вводу */
+.input-box {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.input-box input {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 14px 18px;
+  color: white;
+  outline: none;
+  font-size: 15px;
+  transition: border 0.3s ease;
+}
+
+.input-box input:focus {
+  border-color: var(--blue-accent);
+}
+
+.input-box button {
+  background: linear-gradient(135deg, #6366f1, #a855f7);
+  border: none;
+  color: white;
+  padding: 0 24px;
+  border-radius: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.input-box button:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Область списку */
+.todo-scroll-area {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-right: -10px; /* Приховуємо відступ для естетики */
+}
+
+.todo-scroll-area::-webkit-scrollbar { width: 4px; }
+.todo-scroll-area::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+}
+
+.todo-list { list-style: none; padding: 0; margin: 0; }
+
+.todo-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.04);
+  margin-bottom: 12px;
+  padding: 16px;
+  border-radius: 18px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+}
+
+.todo-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateX(5px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Інфо про завдання */
+.todo-content {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.checkbox {
+  min-width: 24px;
+  height: 24px;
+  border: 2px solid var(--purple-light);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--purple-light);
+  transition: all 0.2s ease;
+}
+
+.todo-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+}
+
+.todo-text { font-size: 15px; font-weight: 500; }
+.todo-time { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
+
+/* Статус виконано */
+.completed .checkbox {
+  background: var(--purple-light);
+  color: var(--deep-space);
+}
+
+.completed .todo-text {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+
+/* Кнопка видалення */
+.btn-delete {
+  background: rgba(239, 68, 68, 0.1);
+  border: none;
+  color: #f87171;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-delete:hover {
+  background: #ef4444;
+  color: white;
+}
+
+.todo-status {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 500;
+}

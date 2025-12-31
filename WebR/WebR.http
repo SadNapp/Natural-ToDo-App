@@ -1,0 +1,27 @@
+@WebR_HostAddress = http://localhost:5186
+
+### Отримати всі завдання
+GET {{WebR_HostAddress}}/api/todo
+Accept: application/json
+
+### Створити нове завдання
+POST {{WebR_HostAddress}}/api/todo
+Content-Type: application/json
+
+{
+  "title": "Вивчити як працює HTTP файл",
+  "isCompleted": false
+}
+
+### Оновити завдання (заміни {id} на реальний ID, наприклад 1)
+PUT {{WebR_HostAddress}}/api/todo/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Запустити .NET Backend (Оновлено)",
+  "isCompleted": true
+}
+
+### Видалити завдання (заміни {id} на реальний ID)
+DELETE {{WebR_HostAddress}}/api/todo/1

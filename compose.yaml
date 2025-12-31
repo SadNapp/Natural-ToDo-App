@@ -1,0 +1,7 @@
+﻿services:
+  webr:
+    image: webr
+    build:
+      context: .
+      dockerfile: WebR/Dockerfile
+
