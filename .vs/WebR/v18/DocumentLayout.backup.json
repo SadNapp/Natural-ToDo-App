@@ -1,0 +1,241 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\ProjectVS\\WebR\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|e:\\projectvs\\webr\\webr\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|solutionrelative:webr\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|e:\\projectvs\\webr\\webr\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|solutionrelative:webr\\controllers\\todocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|e:\\projectvs\\webr\\webr\\migrations\\20260319142556_updatetodomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|solutionrelative:webr\\migrations\\20260319142556_updatetodomodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|e:\\projectvs\\webr\\webr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|solutionrelative:webr\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|e:\\projectvs\\webr\\webr\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{28727625-645B-40A1-9701-F9740472E8BE}|WebR\\WebR.csproj|solutionrelative:webr\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|e:\\projectvs\\webr\\frontend\\src\\components\\todolist.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\components\\todolist.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|e:\\projectvs\\webr\\frontend\\src\\components\\todoitem.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\components\\todoitem.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|e:\\projectvs\\webr\\frontend\\src\\components\\naturefactwidget.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\components\\naturefactwidget.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|e:\\projectvs\\webr\\frontend\\src\\components\\clock.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\components\\clock.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|E:\\ProjectVS\\WebR\\frontend\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\vite.config.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|E:\\ProjectVS\\WebR\\frontend\\src\\todoapp.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\todoapp.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|E:\\ProjectVS\\WebR\\frontend\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\main.jsx||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|E:\\ProjectVS\\WebR\\frontend\\src\\styles\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{BEC1AF4D-7070-47DE-541E-D6A8B557E3AB}|E:\\ProjectVS\\WebR\\frontend|solutionrelative:frontend\\src\\styles\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\WebR\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "WebR\\Data\\AppDbContext.cs",
+              "ToolTip": "E:\\ProjectVS\\WebR\\WebR\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "WebR\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T18:20:24.102Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TodoController.cs",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\WebR\\Controllers\\TodoController.cs",
+              "RelativeDocumentMoniker": "WebR\\Controllers\\TodoController.cs",
+              "ToolTip": "E:\\ProjectVS\\WebR\\WebR\\Controllers\\TodoController.cs",
+              "RelativeToolTip": "WebR\\Controllers\\TodoController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T18:20:19.23Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TodoItem.cs",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\WebR\\Models\\TodoItem.cs",
+              "RelativeDocumentMoniker": "WebR\\Models\\TodoItem.cs",
+              "ToolTip": "E:\\ProjectVS\\WebR\\WebR\\Models\\TodoItem.cs",
+              "RelativeToolTip": "WebR\\Models\\TodoItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-26T18:19:34.346Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TodoList.jsx",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\TodoList.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\TodoList.jsx",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\TodoList.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\TodoList.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-03-26T18:19:25.57Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TodoItem.jsx",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\TodoItem.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\TodoItem.jsx",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\TodoItem.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\TodoItem.jsx",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-03-26T18:19:19.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "NatureFactWidget.jsx",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\NatureFactWidget.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\NatureFactWidget.jsx",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\NatureFactWidget.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\NatureFactWidget.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-03-26T18:19:13.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Clock.jsx",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\Clock.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\components\\Clock.jsx",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\components\\Clock.jsx",
+              "RelativeToolTip": "frontend\\src\\components\\Clock.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-03-26T18:19:08.631Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20260319142556_UpdateTodoModel.cs",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\WebR\\Migrations\\20260319142556_UpdateTodoModel.cs",
+              "RelativeDocumentMoniker": "WebR\\Migrations\\20260319142556_UpdateTodoModel.cs",
+              "ToolTip": "E:\\ProjectVS\\WebR\\WebR\\Migrations\\20260319142556_UpdateTodoModel.cs",
+              "RelativeToolTip": "WebR\\Migrations\\20260319142556_UpdateTodoModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-24T22:18:26.953Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "TodoApp.jsx",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\TodoApp.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\TodoApp.jsx",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\TodoApp.jsx",
+              "RelativeToolTip": "frontend\\src\\TodoApp.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-03-19T01:21:21.76Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "main.jsx",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\main.jsx",
+              "RelativeDocumentMoniker": "frontend\\src\\main.jsx",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\main.jsx",
+              "RelativeToolTip": "frontend\\src\\main.jsx",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003663|",
+              "WhenOpened": "2026-03-19T01:21:18.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\WebR\\Program.cs",
+              "RelativeDocumentMoniker": "WebR\\Program.cs",
+              "ToolTip": "E:\\ProjectVS\\WebR\\WebR\\Program.cs",
+              "RelativeToolTip": "WebR\\Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAABQAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-18T23:58:59.651Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "vite.config.js",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\vite.config.js",
+              "RelativeDocumentMoniker": "frontend\\vite.config.js",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\vite.config.js",
+              "RelativeToolTip": "frontend\\vite.config.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-03-19T01:21:27.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "index.css",
+              "DocumentMoniker": "E:\\ProjectVS\\WebR\\frontend\\src\\styles\\index.css",
+              "RelativeDocumentMoniker": "frontend\\src\\styles\\index.css",
+              "ToolTip": "E:\\ProjectVS\\WebR\\frontend\\src\\styles\\index.css",
+              "RelativeToolTip": "frontend\\src\\styles\\index.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-03-19T01:21:04.24Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
