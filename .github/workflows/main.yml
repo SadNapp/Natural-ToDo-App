@@ -1,0 +1,50 @@
+name: .NET Core & React Build CI
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build-and-test-backend:
+    name: Build .NET Backend
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 10.0.x # adjust to backend sdk version required
+
+    - name: Restore dependencies
+      run: dotnet restore WebR/WebR.csproj
+
+    - name: Build
+      run: dotnet build WebR/WebR.csproj --configuration Release --no-restore
+
+  build-frontend:
+    name: Build React Frontend
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+        cache: 'npm'
+        cache-dependency-path: frontend/package-lock.json
+
+    - name: Install dependencies
+      working-directory: ./frontend
+      run: npm ci
+
+    - name: Build React App
+      working-directory: ./frontend
+      env:
+         VITE_API_URL: http://localhost:5186/api/todo
+      run: npm run build
