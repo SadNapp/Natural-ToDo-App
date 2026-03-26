@@ -1,0 +1,29 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vscode/
+
+# Node & React
+node_modules/
+dist/
+build/
+.env
+.env.local
+.DS_Store
+npm-debug.log*
+
+# Docker & Logs
+logs/
+app_logs/
+App_Data/Saves/
+
+# Database files
+*.mdf
+*.ldf
+*.ndf
+*.sqlite
+*.sqlite3

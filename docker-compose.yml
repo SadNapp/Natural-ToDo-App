@@ -1,0 +1,71 @@
+version: '3.8'
+
+services:
+  # ======== BACKEND SERVICE ========
+  api:
+    build:
+      context: .
+      dockerfile: WebR/Dockerfile
+    container_name: webr-api
+    ports:
+      - "5186:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      # Використовує змінні з .env, або дефолтні
+      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING:-Host=db;Port=5432;Database=webr_todo_db;Username=postgres;Password=mysecretpassword}
+    depends_on:
+      - db
+    volumes:
+      # Збереження JSON fallback-даних та локального кешу бази
+      - app_data_saves:/app/App_Data/Saves
+      # Збереження логів Serilog
+      - app_logs:/app/logs
+    networks:
+      - webr-network
+    restart: unless-stopped
+
+  # ======== FRONTEND SERVICE ========
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        # Під час білду Vite пропише цей URL у бандл. 
+        # API доступне юзеру за цим локальним посиланням через порт 5186
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:5186/api/todo}
+    container_name: webr-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - api
+    networks:
+      - webr-network
+    restart: unless-stopped
+
+  # ======== DATABASE SERVICE ========
+  db:
+    image: postgres:15-alpine
+    container_name: webr-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-mysecretpassword}
+      POSTGRES_DB: ${DB_NAME:-webr_todo_db}
+    ports:
+      - "5432:5432"
+    volumes:
+      # Зберігаємо дані PostgreSQL навіть після зупинки контейнера
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - webr-network
+    restart: unless-stopped
+
+# ======== VOLUMES ========
+volumes:
+  postgres_data:
+  app_data_saves:
+  app_logs:
+
+# ======== NETWORKS ========
+networks:
+  webr-network:
+    driver: bridge

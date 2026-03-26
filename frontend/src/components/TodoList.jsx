@@ -1,7 +1,7 @@
 import React from 'react';
 import TodoItem from './TodoItem';
 
-const TodoList = ({ todos, onToggle, onDelete }) => {
+const TodoList = ({ todos, onToggle, onDelete, selectedIds, onSelectToggle }) => {
     if (todos.length === 0) {
         return <div className="empty-state">Усі справи виконано! 🙌</div>;
     }
@@ -14,6 +14,8 @@ const TodoList = ({ todos, onToggle, onDelete }) => {
                     todo={todo}
                     onToggle={onToggle}
                     onDelete={onDelete}
+                    selected={selectedIds && selectedIds.includes(todo.id)}
+                    onSelectToggle={onSelectToggle}
                 />
             ))}
         </ul>
