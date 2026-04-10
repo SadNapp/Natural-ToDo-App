@@ -11,7 +11,6 @@
   <img src="https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql" alt="PostgreSQL">
   <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker" alt="Docker">
 </p>
----
 
 ## 🚀 Tech Stack
 - **Backend**: C# .NET API (EF Core, Serilog)
@@ -30,7 +29,7 @@
 ---
 
 ## 🏗️ How to Run Locally
-
+```
 1. Rename `.env.example` to `.env`.
 2. Run in terminal:
 ```bash
@@ -38,7 +37,7 @@ docker-compose up -d --build
 UI: http://localhost:5173
 
 API: http://localhost:5186/api/todo
-
+```
 Українська Версія 🌿
 ✨ Ключові фічі
 Дизайн Glassmorphism: Напівпрозорі матові інтерфейси та мікро-анімації.
@@ -50,14 +49,14 @@ Soft Delete (Кошик): Завдання потрапляють у кошик,
 Fallback Storage Mode: Автоматичне перемикання на JSON-збереження при втраті зв'язку з БД.
 
 Аналітичний дашборд: Графіки (Bar & Pie Charts) та масові дії з завданнями.
-
+```
 🏗️ Інструкція із Запуску (Docker)
 Bash
 docker-compose up -d --build
 Frontend: http://localhost:5173
 
 Backend API: http://localhost:5186
-
+```
 👤 Author
 SadNapp
 
