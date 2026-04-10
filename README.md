@@ -1,4 +1,4 @@
-# <p align="center"><img src="frontend/Assets/Icon/NatureIcon.png" width="80" height="80" alt="Project Icon"><br>Fullstack ToDo Project 🌿</p>
+# <p align="center"><img src="frontend/Assets/Icon/NatureIcon.png" width="160" height="160" alt="Project Icon"><br>Fullstack ToDo Project 🌿</p>
 
 <p align="center">
   <strong>A modern, full-stack Task Management application built with a focus on cutting-edge UI/UX (Glassmorphism), resilience, and analytical insights.</strong>
@@ -14,16 +14,6 @@
 
 ---
 
-## 📸 Screenshots & UI
-
-<p align="center">
-  <img src="YOUR_MAIN_SCREENSHOT_PATH" width="800" alt="Main Dashboard Interface">
-</p>
-
-<p align="center">
-  <img src="YOUR_MOBILE_OR_SIDE_SCREENSHOT_PATH" width="400" alt="Secondary View">
-  <img src="YOUR_ANALYTICS_SCREENSHOT_PATH" width="400" alt="Analytics Dashboard">
-</p>
 
 ---
 
