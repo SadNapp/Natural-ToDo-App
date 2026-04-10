@@ -11,10 +11,6 @@
   <img src="https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql" alt="PostgreSQL">
   <img src="https://img.shields.io/badge/Docker-Enabled-2496ED?logo=docker" alt="Docker">
 </p>
-
----
-
-
 ---
 
 ## 🚀 Tech Stack
