@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "TCJsTJakZmU=",
+  "dgSpecHash": "gcNWWYxb7Oc=",
   "success": true,
-  "projectFilePath": "E:\\ProjectVS\\WebR\\WebR\\WebR.csproj",
+  "projectFilePath": "E:\\ProjectVS\\nature\\Natural-ToDo-App\\WebR\\WebR.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\danil\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.0\\microsoft.aspnetcore.openapi.10.0.0.nupkg.sha512",
@@ -58,5 +58,18 @@
     "C:\\Users\\danil\\.nuget\\packages\\system.security.permissions\\9.0.0\\system.security.permissions.9.0.0.nupkg.sha512",
     "C:\\Users\\danil\\.nuget\\packages\\system.windows.extensions\\9.0.0\\system.windows.extensions.9.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Microsoft.OpenApi' 2.4.1 has a known high severity vulnerability, https://github.com/advisories/GHSA-v5pm-xwqc-g5wc",
+      "projectPath": "E:\\ProjectVS\\nature\\Natural-ToDo-App\\WebR\\WebR.csproj",
+      "warningLevel": 1,
+      "filePath": "E:\\ProjectVS\\nature\\Natural-ToDo-App\\WebR\\WebR.csproj",
+      "libraryId": "Microsoft.OpenApi",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
 }

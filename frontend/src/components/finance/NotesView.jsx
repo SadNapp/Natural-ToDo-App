@@ -1,0 +1,25 @@
+import { useState } from 'react';
+function NotesView({ todos, operations, goals, categories, loading, onCreate, onToggle, onDelete, onRefresh }) {
+    const [form, setForm] = useState({ title: '', category: 'Особисте', deadline: '', notes: '', linkedType: '', linkedId: '' });
+    const [error, setError] = useState('');
+    const submit = async (event) => {
+        event.preventDefault();
+        if (!form.title.trim()) return;
+        if (form.linkedType && !form.linkedId) { setError('Виберіть запис для зв’язку або встановіть «Без зв’язку».'); return; }
+        try { await onCreate({ title: form.title.trim(), category: form.category.trim() || 'Інше', deadline: form.deadline || null, notes: form.notes.trim(), priority: 0, isCompleted: false, linkedType: form.linkedType || null, linkedId: form.linkedType ? form.linkedId : null }); setForm({ title: '', category: 'Особисте', deadline: '', notes: '', linkedType: '', linkedId: '' }); setError(''); }
+        catch (saveError) { setError(saveError.message || 'Не вдалося зберегти нотатку.'); }
+    };
+
+    return <div className="finance-view notes-view">
+        <section className="panel"><div className="section-heading compact"><div><p className="eyebrow">ОСОБИСТИЙ ЗАПИСНИК</p><h2>Нотатки та справи</h2></div><button className="text-button" onClick={onRefresh}>Оновити список</button></div>
+            <form className="note-form" onSubmit={submit}><label className="field-label">Нова нотатка або справа<input className="text-input" value={form.title} onChange={(event) => setForm((current) => ({ ...current, title: event.target.value }))} maxLength="100" placeholder="Записати думку або нагадування…" required /></label><label className="field-label">Категорія<input className="text-input" value={form.category} onChange={(event) => setForm((current) => ({ ...current, category: event.target.value }))} maxLength="60" /></label><label className="field-label">Нагадати<input className="text-input" type="datetime-local" value={form.deadline} onChange={(event) => setForm((current) => ({ ...current, deadline: event.target.value }))} /></label><button className="primary-button" type="submit">Додати</button><label className="field-label wide-field">Деталі<textarea className="text-input note-textarea" value={form.notes} onChange={(event) => setForm((current) => ({ ...current, notes: event.target.value }))} maxLength="1000" placeholder="Необов’язкова нотатка або контекст" /></label></form>
+            <div className="note-link-row"><label className="field-label">Пов’язати з (необов’язково)<select className="text-input" value={form.linkedType} onChange={(event) => setForm((current) => ({ ...current, linkedType: event.target.value, linkedId: '' }))}><option value="">Без зв’язку</option><option value="operation">Операцією</option><option value="category">Категорією</option><option value="goal">Ціллю заощадження</option></select></label>{form.linkedType && <label className="field-label">Виберіть запис<select className="text-input" value={form.linkedId} onChange={(event) => setForm((current) => ({ ...current, linkedId: event.target.value }))} required><option value="">Оберіть…</option>{(form.linkedType === 'operation' ? operations : form.linkedType === 'category' ? categories : goals).map((item) => <option key={item.id} value={item.id}>{item.title || item.name}</option>)}</select></label>}</div>
+            {error && <p className="inline-error" role="alert">{error}</p>}
+        </section>
+        <section className="panel"><div className="section-heading compact"><div><p className="eyebrow">НЕ ФІНАНСОВІ ОПЕРАЦІЇ</p><h2>Активні записи</h2></div><span className="muted-label">{todos.length}</span></div>
+            {loading ? <div className="empty-state">Завантаження нотаток…</div> : todos.length === 0 ? <div className="empty-state"><strong>Нотаток поки немає</strong><span>Створіть окреме нагадування або запишіть думку вище.</span></div> : <ul className="notes-list">{todos.map((todo) => { const linked = todo.linkedType === 'operation' ? operations.find((item) => item.id === todo.linkedId)?.title : todo.linkedType === 'category' ? categories.find((item) => item.id === todo.linkedId)?.name : todo.linkedType === 'goal' ? goals.find((item) => item.id === todo.linkedId)?.name : null; return <li className={`note-card ${todo.isCompleted ? 'completed' : ''}`} key={todo.id}><button className="note-toggle" type="button" onClick={() => onToggle(todo)} aria-pressed={todo.isCompleted}><span className="checkbox">{todo.isCompleted ? '✓' : ''}</span></button><div className="note-details"><strong>{todo.title}</strong><span>{todo.category || 'Інше'}{todo.deadline ? ` · Нагадати ${new Date(todo.deadline).toLocaleString('uk-UA', { day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' })}` : ''}</span>{todo.notes && <p>{todo.notes}</p>}{linked && <small>Пов’язано: {linked}</small>}</div><button className="btn-delete" title="Перемістити в кошик" aria-label={`Перемістити в кошик: ${todo.title}`} onClick={() => onDelete(todo.id)}>×</button></li>; })}</ul>}
+        </section>
+    </div>;
+}
+
+export default NotesView;

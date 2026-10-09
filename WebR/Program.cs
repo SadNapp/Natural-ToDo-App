@@ -45,7 +45,15 @@ using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var context = services.GetRequiredService<AppDbContext>();
-    context.Database.Migrate();
+    if (await context.Database.CanConnectAsync())
+    {
+        await context.Database.MigrateAsync();
+        Log.Information("Database migrations applied successfully.");
+    }
+    else
+    {
+        Log.Warning("Database is unavailable. The API will start with file storage fallback.");
+    }
 }
 
 if (app.Environment.IsDevelopment())
