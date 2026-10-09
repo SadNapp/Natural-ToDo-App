@@ -77,17 +77,17 @@ namespace WebR.Services
             return await _fallbackStorage.GetAllAsync();
         }
 
-        public async Task<TodoItem?> GetByIdAsync(int id)
+        public async Task<TodoItem?> GetByIdAsync(Guid Id)
         {
             if (await IsDatabaseAvailableAsync())
             {
                 await EnsureSyncAsync();
-                return await _primaryService.GetByIdAsync(id);
+                return await _primaryService.GetByIdAsync(Id);
             }
 
             _logger.LogWarning("Warning: Database unavailable. Using local file storage fallback.");
             SetFallbackHeader();
-            return await _fallbackStorage.GetByIdAsync(id);
+            return await _fallbackStorage.GetByIdAsync(Id);
         }
 
         public async Task<TodoItem> AddAsync(TodoItem item)
@@ -116,17 +116,17 @@ namespace WebR.Services
             return await _fallbackStorage.UpdateAsync(item);
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(Guid Id)
         {
             if (await IsDatabaseAvailableAsync())
             {
                 await EnsureSyncAsync();
-                return await _primaryService.DeleteAsync(id);
+                return await _primaryService.DeleteAsync(Id);
             }
 
             _logger.LogWarning("Warning: Database unavailable. Using local file storage fallback.");
             SetFallbackHeader();
-            return await _fallbackStorage.DeleteAsync(id);
+            return await _fallbackStorage.DeleteAsync(Id);
         }
 
         public async Task<IEnumerable<TodoItem>> GetDeletedAsync()
@@ -142,30 +142,30 @@ namespace WebR.Services
             return await _fallbackStorage.GetDeletedAsync();
         }
 
-        public async Task<bool> RestoreAsync(int id)
+        public async Task<bool> RestoreAsync(Guid Id)
         {
             if (await IsDatabaseAvailableAsync())
             {
                 await EnsureSyncAsync();
-                return await _primaryService.RestoreAsync(id);
+                return await _primaryService.RestoreAsync(Id);
             }
 
             _logger.LogWarning("Warning: Database unavailable. Using local file storage fallback.");
             SetFallbackHeader();
-            return await _fallbackStorage.RestoreAsync(id);
+            return await _fallbackStorage.RestoreAsync(Id);
         }
 
-        public async Task<bool> HardDeleteAsync(int id)
+        public async Task<bool> HardDeleteAsync(Guid Id)
         {
             if (await IsDatabaseAvailableAsync())
             {
                 await EnsureSyncAsync();
-                return await _primaryService.HardDeleteAsync(id);
+                return await _primaryService.HardDeleteAsync(Id);
             }
 
             _logger.LogWarning("Warning: Database unavailable. Using local file storage fallback.");
             SetFallbackHeader();
-            return await _fallbackStorage.HardDeleteAsync(id);
+            return await _fallbackStorage.HardDeleteAsync(Id);
         }
     }
 }

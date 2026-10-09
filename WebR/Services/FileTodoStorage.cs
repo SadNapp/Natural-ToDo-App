@@ -65,16 +65,16 @@ namespace WebR.Services
             return items.Where(t => t.IsDeleted);
         }
 
-        public async Task<TodoItem?> GetByIdAsync(int id)
+        public async Task<TodoItem?> GetByIdAsync(Guid Id)
         {
             var items = await ReadItemsAsync();
-            return items.FirstOrDefault(t => t.Id == id);
+            return items.FirstOrDefault(t => t.Id == Id);
         }
 
         public async Task<TodoItem> AddAsync(TodoItem item)
         {
             var items = await ReadItemsAsync();
-            item.Id = items.Any() ? items.Max(t => t.Id) + 1 : 1;
+           // item.Id = items.Any() ? items.Max(t => t.Id) + Gui;
             item.CreatedAt = DateTime.UtcNow;
             // Also negative ID to indicate it's local only? Or just normal ID.
             // When syncing we can reset the ID to 0 so DB generates new ones.
@@ -100,10 +100,10 @@ namespace WebR.Services
             return true;
         }
 
-        public async Task<bool> DeleteAsync(int id)
+        public async Task<bool> DeleteAsync(Guid Id)
         {
             var items = await ReadItemsAsync();
-            var index = items.FindIndex(t => t.Id == id);
+            var index = items.FindIndex(t => t.Id == Id);
             if (index == -1 || items[index].IsDeleted) return false;
 
             items[index].IsDeleted = true;
@@ -111,10 +111,10 @@ namespace WebR.Services
             return true;
         }
 
-        public async Task<bool> RestoreAsync(int id)
+        public async Task<bool> RestoreAsync(Guid Id)
         {
             var items = await ReadItemsAsync();
-            var index = items.FindIndex(t => t.Id == id);
+            var index = items.FindIndex(t => t.Id == Id);
             if (index == -1 || !items[index].IsDeleted) return false;
 
             items[index].IsDeleted = false;
@@ -122,10 +122,10 @@ namespace WebR.Services
             return true;
         }
 
-        public async Task<bool> HardDeleteAsync(int id)
+        public async Task<bool> HardDeleteAsync(Guid Id)
         {
             var items = await ReadItemsAsync();
-            var count = items.RemoveAll(t => t.Id == id);
+            var count = items.RemoveAll(t => t.Id == Id);
             if (count > 0)
             {
                 await WriteItemsAsync(items);
@@ -143,7 +143,7 @@ namespace WebR.Services
             foreach (var item in localItems)
             {
                 // Reset ID so PostgreSQL auto-generates a new one
-                item.Id = 0; 
+                item.Id = new Guid(); 
                 context.Todos.Add(item);
             }
 

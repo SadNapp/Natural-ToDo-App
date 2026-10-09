@@ -27,7 +27,7 @@ namespace WebR.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, TodoItem item)
+        public async Task<IActionResult> Update(Guid id, TodoItem item)
         {
             if (id != item.Id) return BadRequest();
             if (!await _todoService.UpdateAsync(item)) return NotFound();
@@ -35,9 +35,9 @@ namespace WebR.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Delete(Guid Id)
         {
-            if (!await _todoService.DeleteAsync(id)) return NotFound();
+            if (!await _todoService.DeleteAsync(Id)) return NotFound();
             return NoContent();
         }
 
@@ -45,16 +45,16 @@ namespace WebR.Controllers
         public async Task<IActionResult> GetDeleted() => Ok(await _todoService.GetDeletedAsync());
 
         [HttpPut("{id}/restore")]
-        public async Task<IActionResult> Restore(int id)
+        public async Task<IActionResult> Restore(Guid Id)
         {
-            if (!await _todoService.RestoreAsync(id)) return NotFound();
+            if (!await _todoService.RestoreAsync(Id)) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}/hard")]
-        public async Task<IActionResult> HardDelete(int id)
+        public async Task<IActionResult> HardDelete(Guid Id)
         {
-            if (!await _todoService.HardDeleteAsync(id)) return NotFound();
+            if (!await _todoService.HardDeleteAsync(Id)) return NotFound();
             return NoContent();
         }
     }

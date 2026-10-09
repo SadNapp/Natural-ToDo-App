@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebR")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c02025fe00f23d89cc4dfdd8c619f723528d8517")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43f89e02d9a292fa2ab50b8ef27a344400d18195")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebR")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebR")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
