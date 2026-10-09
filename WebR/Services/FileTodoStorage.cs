@@ -144,7 +144,7 @@ namespace WebR.Services
             {
                 // Reset ID so PostgreSQL auto-generates a new one
                 item.Id = new Guid(); 
-                context.Todos.Add(item);
+                context.TodoItems.Add(item);
             }
 
             await context.SaveChangesAsync();

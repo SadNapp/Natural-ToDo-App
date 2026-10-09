@@ -22,26 +22,26 @@ namespace WebR.Services
         public async Task<IEnumerable<TodoItem>> GetAllAsync()
         {
             _logger.LogInformation("Getting all active todo items");
-            return await _context.Todos.Where(t => !t.IsDeleted).ToListAsync();
+            return await _context.TodoItems.Where(t => !t.IsDeleted).ToListAsync();
         }
 
         public async Task<IEnumerable<TodoItem>> GetDeletedAsync()
         {
             _logger.LogInformation("Getting all deleted todo items");
-            return await _context.Todos.Where(t => t.IsDeleted).ToListAsync();
+            return await _context.TodoItems.Where(t => t.IsDeleted).ToListAsync();
         }
 
         public async Task<TodoItem?> GetByIdAsync(Guid Id)
         {
             _logger.LogInformation("Getting todo item by ID: {Id}", Id);
-            return await _context.Todos.FirstOrDefaultAsync(t => t.Id == Id);
+            return await _context.TodoItems.FirstOrDefaultAsync(t => t.Id == Id);
         }
 
         public async Task<TodoItem> AddAsync(TodoItem item)
         {
             _logger.LogInformation("Adding new todo item: {Title}", item.Title);
             item.CreatedAt = DateTime.UtcNow;
-            _context.Todos.Add(item);
+            _context.TodoItems.Add(item);
             await _context.SaveChangesAsync();
             return item;
         }
@@ -49,7 +49,7 @@ namespace WebR.Services
         public async Task<bool> UpdateAsync(TodoItem item)
         {
             _logger.LogInformation("Updating todo item: {Id}", item.Id);
-            var existingItem = await _context.Todos.FindAsync(item.Id);
+            var existingItem = await _context.TodoItems.FindAsync(item.Id);
             if (existingItem == null) 
             {
                 _logger.LogWarning("Todo item not found for update: {Id}", item.Id);
@@ -69,7 +69,7 @@ namespace WebR.Services
         public async Task<bool> DeleteAsync(Guid Id)
         {
             _logger.LogInformation("Soft deleting todo item: {Id}", Id);
-            var item = await _context.Todos.FindAsync(Id);
+            var item = await _context.TodoItems.FindAsync(Id);
             if (item == null || item.IsDeleted) 
             {
                 _logger.LogWarning("Todo item not found or already deleted: {Id}", Id);
@@ -84,7 +84,7 @@ namespace WebR.Services
         public async Task<bool> RestoreAsync(Guid Id)
         {
             _logger.LogInformation("Restoring todo item: {Id}", Id);
-            var item = await _context.Todos.FindAsync(Id);
+            var item = await _context.TodoItems.FindAsync(Id);
             if (item == null || !item.IsDeleted) return false;
 
             item.IsDeleted = false;
@@ -95,10 +95,10 @@ namespace WebR.Services
         public async Task<bool> HardDeleteAsync(Guid Id)
         {
             _logger.LogInformation("Hard deleting todo item: {Id}", Id);
-            var item = await _context.Todos.FindAsync(Id);
+            var item = await _context.TodoItems.FindAsync(Id);
             if (item == null) return false;
 
-            _context.Todos.Remove(item);
+            _context.TodoItems.Remove(item);
             await _context.SaveChangesAsync();
             return true;
         }

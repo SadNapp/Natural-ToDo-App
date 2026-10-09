@@ -9,13 +9,15 @@ namespace WebR.Models;
 public class TodoItem 
 {
     public Guid Id { get; set; }
+    
     public string Title { get; set; } = string.Empty;
+    public string Category { get; set; } = "Other";
+    
     public bool IsCompleted { get; set; }
+    public bool IsDeleted { get; set; } = false;
+    
+    public TodoItemPriority Priority { get; set; } 
     
     public DateTime CreatedAt { get; set; }
-    
     public DateTime? Deadline { get; set; }
-    public TodoItemPriority Priority { get; set; } 
-    public string Category { get; set; } = "Other";
-    public bool IsDeleted { get; set; } = false;
 }
