@@ -30,10 +30,10 @@
 
 ## 🏗️ How to Run Locally
 ```
-1. Rename `.env.example` to `.env`.
-2. Run in terminal:
+1. Copy `.env.example` to `.env` if you want to override the defaults.
+2. Run from the repository root:
 ```bash
-docker-compose up -d --build
+docker compose up --build
 UI: http://localhost:5173
 
 API: http://localhost:5186/api/todo
@@ -52,7 +52,7 @@ Fallback Storage Mode: Автоматичне перемикання на JSON-�
 ```
 🏗️ Інструкція із Запуску (Docker)
 Bash
-docker-compose up -d --build
+docker compose up --build
 Frontend: http://localhost:5173
 
 Backend API: http://localhost:5186

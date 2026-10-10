@@ -1,7 +1,85 @@
-﻿services:
-  webr:
-    image: webr
+services:
+  # ======== BACKEND SERVICE ========
+  api:
     build:
       context: .
-      dockerfile: WebR/Dockerfile
+      dockerfile: backend/Dockerfile
+    container_name: backend-api
+    ports:
+      - "5186:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://+:8080
+      # Використовує змінні з .env, або дефолтні
+      - ConnectionStrings__DefaultConnection=${DB_CONNECTION_STRING:-Host=db;Port=5432;Database=webr_todo_db;Username=postgres;Password=mysecretpassword}
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      # Збереження JSON fallback-даних та локального кешу бази
+      - backend_fallback_data:/app/FallbackStorage/Saves
+      # Збереження логів Serilog
+      - backend_logs:/app/logs
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:8080/health || exit 1"]
+      interval: 10s
+      timeout: 3s
+      retries: 10
+      start_period: 30s
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # ======== FRONTEND SERVICE ========
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - VITE_API_URL=${VITE_API_URL:-http://localhost:5186/api/todo}
+        - VITE_FINANCE_DATA_MODE=${VITE_FINANCE_DATA_MODE:-api}
+        - VITE_FINANCE_API_URL=${VITE_FINANCE_API_URL:-http://localhost:5186/api/finance}
+    container_name: nature-todo-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      api:
+        condition: service_started
+    networks:
+      - app-network
+    restart: unless-stopped
+
+  # ======== DATABASE SERVICE ========
+  db:
+    image: postgres:15-alpine
+    container_name: backend-db
+    environment:
+      POSTGRES_USER: ${DB_USER:-postgres}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-mysecretpassword}
+      POSTGRES_DB: ${DB_NAME:-webr_todo_db}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-postgres} -d ${DB_NAME:-webr_todo_db}"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    ports:
+      - "5432:5432"
+    volumes:
+      # Зберігаємо дані PostgreSQL навіть після зупинки контейнера
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    restart: unless-stopped
+
+# ======== VOLUMES ========
+volumes:
+  postgres_data:
+    name: natural-todo-app_postgres_data
+  backend_fallback_data:
+  backend_logs:
+
+# ======== NETWORKS ========
+networks:
+  app-network:
+    driver: bridge
 

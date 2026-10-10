@@ -1,6 +1,10 @@
 # Install dependencies and build the app
 FROM node:20-alpine AS build
 WORKDIR /app
+ARG VITE_API_URL=http://localhost:5186/api/todo
+ARG VITE_FINANCE_DATA_MODE=mock
+ARG VITE_FINANCE_API_URL=http://localhost:5186/api/finance
+ENV VITE_API_URL=$VITE_API_URL VITE_FINANCE_DATA_MODE=$VITE_FINANCE_DATA_MODE VITE_FINANCE_API_URL=$VITE_FINANCE_API_URL
 
 # Copy configuration and install dependencies
 COPY package*.json ./

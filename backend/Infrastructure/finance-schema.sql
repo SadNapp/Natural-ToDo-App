@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS "FinanceCategories" ("Id" uuid PRIMARY KEY, "Name" text NOT NULL, "Color" text, "IsArchived" boolean NOT NULL, "Group" text NOT NULL, "CreatedAtUtc" timestamptz NOT NULL);
+CREATE UNIQUE INDEX IF NOT EXISTS "IX_FinanceCategories_Name" ON "FinanceCategories" ("Name");
+CREATE TABLE IF NOT EXISTS "MonthlyBudgets" ("Id" uuid PRIMARY KEY, "Year" integer NOT NULL, "Month" integer NOT NULL, "NetIncome" numeric(18,2) NOT NULL, "NeedsPercentage" numeric(7,2) NOT NULL, "WantsPercentage" numeric(7,2) NOT NULL, "SavingsPercentage" numeric(7,2) NOT NULL, "Template" text NOT NULL);
+CREATE UNIQUE INDEX IF NOT EXISTS "IX_MonthlyBudgets_Year_Month" ON "MonthlyBudgets" ("Year", "Month");
+CREATE TABLE IF NOT EXISTS "SavingsGoals" ("Id" uuid PRIMARY KEY, "Name" text NOT NULL, "Note" text, "TargetAmount" numeric(18,2) NOT NULL, "InitialSavedAmount" numeric(18,2) NOT NULL, "IsArchived" boolean NOT NULL, "Priority" text NOT NULL, "TargetDate" date, "CreatedAtUtc" timestamptz NOT NULL);
+CREATE TABLE IF NOT EXISTS "FinanceOperations" ("Id" uuid PRIMARY KEY, "CategoryId" uuid NOT NULL REFERENCES "FinanceCategories"("Id") ON DELETE RESTRICT, "Title" text NOT NULL, "Account" text, "Note" text, "Amount" numeric(18,2) NOT NULL, "IsDeleted" boolean NOT NULL, "Recurring" boolean NOT NULL, "Type" text NOT NULL, "Status" text NOT NULL, "Frequency" text, "Date" date NOT NULL, "CreatedAtUtc" timestamptz NOT NULL, "UpdatedAtUtc" timestamptz);
+CREATE INDEX IF NOT EXISTS "IX_FinanceOperations_CategoryId" ON "FinanceOperations" ("CategoryId");
+CREATE TABLE IF NOT EXISTS "BudgetCategoryAllocations" ("Id" uuid PRIMARY KEY, "MonthlyBudgetId" uuid NOT NULL REFERENCES "MonthlyBudgets"("Id") ON DELETE CASCADE, "CategoryId" uuid NOT NULL, "PlannedAmount" numeric(18,2) NOT NULL);
+CREATE UNIQUE INDEX IF NOT EXISTS "IX_BudgetCategoryAllocations_MonthlyBudgetId_CategoryId" ON "BudgetCategoryAllocations" ("MonthlyBudgetId", "CategoryId");
+CREATE TABLE IF NOT EXISTS "GoalContributions" ("Id" uuid PRIMARY KEY, "GoalId" uuid NOT NULL REFERENCES "SavingsGoals"("Id") ON DELETE CASCADE, "Note" text, "Amount" numeric(18,2) NOT NULL, "Date" date NOT NULL, "CreatedAtUtc" timestamptz NOT NULL);
+CREATE INDEX IF NOT EXISTS "IX_GoalContributions_GoalId" ON "GoalContributions" ("GoalId");
