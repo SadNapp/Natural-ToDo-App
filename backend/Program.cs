@@ -62,6 +62,10 @@ using (var scope = app.Services.CreateScope())
                 await using var create = new NpgsqlCommand(sql, connection);
                 await create.ExecuteNonQueryAsync();
             }
+        await using (var addSoftDelete = new NpgsqlCommand("ALTER TABLE IF EXISTS \"Todos\" ADD COLUMN IF NOT EXISTS \"IsDeleted\" boolean NOT NULL DEFAULT false", connection))
+        {
+            await addSoftDelete.ExecuteNonQueryAsync();
+        }
         }
         if (!await context.FinanceCategories.AnyAsync())
         {

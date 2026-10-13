@@ -1,6 +1,10 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
-USER $APP_UID
+FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS base
 WORKDIR /app
+RUN apt-get update && apt-get install -y --no-install-recommends curl libgssapi-krb5-2 \
+    && rm -rf /var/lib/apt/lists/* \
+    && mkdir -p /app/FallbackStorage/Saves /app/logs \
+    && chown -R $APP_UID:$APP_UID /app/FallbackStorage /app/logs
+USER $APP_UID
 EXPOSE 8080
 EXPOSE 8081
 

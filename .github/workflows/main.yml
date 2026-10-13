@@ -12,28 +12,28 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     
     - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 10.0.x # adjust to backend sdk version required
 
     - name: Restore dependencies
-      run: dotnet restore WebR/WebR.csproj
+      run: dotnet restore Backend.sln
 
     - name: Build
-      run: dotnet build WebR/WebR.csproj --configuration Release --no-restore
+      run: dotnet build Backend.sln --configuration Release --no-restore
 
   build-frontend:
     name: Build React Frontend
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
     - name: Setup Node.js
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
         cache: 'npm'

@@ -20,6 +20,7 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<TodoItem>().ToTable("Todos");
         modelBuilder.ApplyConfiguration(new BudgetCategoryAllocationConfiguration());
         modelBuilder.Entity<FinanceOperation>().Property(x => x.Amount).HasPrecision(18, 2);
         modelBuilder.Entity<FinanceOperation>().Property(x => x.Type).HasConversion<string>();
