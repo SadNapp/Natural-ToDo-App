@@ -131,6 +131,5 @@ docker compose up --build
 - [Backend architecture, API, and persistence](backend/README.md)
 - [Frontend structure, configuration, and build](frontend/README.md)
 
-## License
-
-See [LICENSE](LICENSE).
+## Author
+SadNapp
