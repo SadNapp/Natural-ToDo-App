@@ -5,6 +5,10 @@
 Natural ToDo brings everyday tasks and personal budgeting into one responsive workspace. The project explores a practical full-stack architecture: a Vite-built React client, a REST API in ASP.NET Core, relational persistence with PostgreSQL, and a Docker Compose setup for local development.
 
 <p align="center">
+  <img src="icon/photo_Note.jpg" alt="Natural ToDo app screenshot" width="900">
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/React-19-149ECA?logo=react" alt="React 19">
   <img src="https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet" alt=".NET 10">
   <img src="https://img.shields.io/badge/PostgreSQL-15-4169E1?logo=postgresql" alt="PostgreSQL 15">
